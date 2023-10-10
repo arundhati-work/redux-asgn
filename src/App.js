@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Records from './Records/Records';
+import CreateUpdate from './CreateUpdate/CreateUpdate';
+import React, {useState} from 'react';
 
 function App() {
+  const [retreivedId, setRetreivedId] = useState(0);
+  const [content,setContent] = useState('create');
+
+  const updateHandler = (id) => {
+    setRetreivedId(id);
+    setContent('update');
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Creating records with Redux</h1>
+        <div className='container'>
+          <CreateUpdate content={content} passedId={retreivedId} handleClose={()=>setContent('create')}/>
+          <Records handleUpdate={(Id)=> updateHandler(Id)}/>
+        </div>
     </div>
   );
 }

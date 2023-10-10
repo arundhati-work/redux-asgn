@@ -1,0 +1,29 @@
+.records-container{
+    width: 60%;
+}
+
+.records-container table{
+    width: 100%;
+    text-align: center;
+}
+
+.records-container table th, .records-container table td{
+    padding: 1rem 1.5rem;
+}
+
+
+.records-container table tr:first-of-type{
+    background-color: #1D5D9B;
+    color: #FBEEAC;
+}
+
+.records-container button{
+    background-color: transparent;
+    border: none;
+}
+
+@media screen and (max-width:900px){
+    .records-container{
+      width: 100%;
+    }
+  }
